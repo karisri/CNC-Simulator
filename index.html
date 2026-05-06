@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CNC Simulator</title>
+<link rel="icon" type="image/x-icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="panel">
+
+<b>CNC SIMULATOR</b><br><br>
+
+Stock Size
+<div class="row">
+<input id="sx" value="140">
+<input id="sy" value="40">
+<input id="sz" value="140">
+</div>
+
+<!-- TOOL SIZE (VALUE INPUT ONLY) -->
+Tool Size
+<input type="number" id="toolSize" value="6" min="1" max="50">
+
+Material Color
+<input type="color" id="matColor" value="#1e90ff">
+
+Removal Color
+<input type="color" id="remColor" value="#222222">
+
+<button onclick="createStock()">CREATE STOCK</button>
+
+Write your program here
+<textarea id="gcode">
+G90
+G0 X0 Y0 Z60
+G1 X120 Y0 Z0
+G1 X120 Y120 Z0
+G1 X0 Y120 Z0
+G1 X0 Y0 Z0
+</textarea>
+
+<button onclick="run()">RUN</button>
+<button onclick="step(1)">STEP ▶</button>
+<button onclick="step(-1)">BACK ◀</button>
+<button onclick="pauseSim()">PAUSE</button>
+<button onclick="resetSim()">RESET</button>
+
+</div>
+
+<canvas id="cnc"></canvas>
+
+<script src="https://unpkg.com/three@0.152.0/build/three.min.js"></script>
+<script src="script.js"></script>
+</body>
+<footer class="footer">
+  © 2026 m.karisri. All rights reserved.
+</footer>
+</html>
